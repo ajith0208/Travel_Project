@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        .label {
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+        }
+        .input {
+            text-align: center;
+        }
+        body{
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body ><h1>Sign Up</h1>
+    <form method="POST" action="register" style="background-color: rgb(255, 255, 255); display: inline-block; padding: 30px; border: 2px solid black;">
+        {% csrf_token %}
+        <label class="label" for="username">Username : </label>
+        <input type="text" name="username" placeholder="username"><br>
+        <label class="label">Email : </label>
+        <input type="email" name="email" placeholder="example@email.com"><br>
+        <label class="label">First Name : </label>
+        <input type='text' name="fname" placeholder="Enter First Name"><br>
+        <label class="label">Last Name : </label>
+        <input type='text' name="lname" placeholder="Enter Last Name"><br>
+        <label class="label">Password : </label>
+        <input type="password" name="password"><br>
+        <label class="label">Confirm Password : </label>
+        <input type="password" name="cpassword"><br>
+        <input class="input" type="submit" style="margin-top: 20px;" >
+    </form>
+    {% for msg in messages %}
+    <h2>{{ msg }} </h2>
+    {% endfor %}
+</body>
+</html>
